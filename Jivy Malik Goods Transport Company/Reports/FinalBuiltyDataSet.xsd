@@ -1,0 +1,44 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<xs:schema id="FinalBuiltyDataSet" targetNamespace="http://tempuri.org/FinalBuiltyDataSet.xsd" xmlns:mstns="http://tempuri.org/FinalBuiltyDataSet.xsd" xmlns="http://tempuri.org/FinalBuiltyDataSet.xsd" xmlns:xs="http://www.w3.org/2001/XMLSchema" xmlns:msdata="urn:schemas-microsoft-com:xml-msdata" xmlns:msprop="urn:schemas-microsoft-com:xml-msprop" attributeFormDefault="qualified" elementFormDefault="qualified">
+  <xs:annotation>
+    <xs:appinfo source="urn:schemas-microsoft-com:xml-msdatasource">
+      <DataSource DefaultConnectionIndex="0" FunctionsComponentName="QueriesTableAdapter" Modifier="AutoLayout, AnsiClass, Class, Public" SchemaSerializationMode="IncludeSchema" xmlns="urn:schemas-microsoft-com:xml-msdatasource">
+        <Connections />
+        <Tables />
+        <Sources />
+      </DataSource>
+    </xs:appinfo>
+  </xs:annotation>
+  <xs:element name="FinalBuiltyDataSet" msdata:IsDataSet="true" msdata:UseCurrentLocale="true" msprop:EnableTableAdapterManager="true" msprop:Generator_DataSetName="FinalBuiltyDataSet" msprop:Generator_UserDSName="FinalBuiltyDataSet">
+    <xs:complexType>
+      <xs:choice minOccurs="0" maxOccurs="unbounded">
+        <xs:element name="tbl_Builty" msprop:Generator_TableClassName="tbl_BuiltyDataTable" msprop:Generator_TableVarName="tabletbl_Builty" msprop:Generator_TablePropName="tbl_Builty" msprop:Generator_RowDeletingName="tbl_BuiltyRowDeleting" msprop:Generator_RowChangingName="tbl_BuiltyRowChanging" msprop:Generator_RowEvHandlerName="tbl_BuiltyRowChangeEventHandler" msprop:Generator_RowDeletedName="tbl_BuiltyRowDeleted" msprop:Generator_UserTableName="tbl_Builty" msprop:Generator_RowChangedName="tbl_BuiltyRowChanged" msprop:Generator_RowEvArgName="tbl_BuiltyRowChangeEvent" msprop:Generator_RowClassName="tbl_BuiltyRow">
+          <xs:complexType>
+            <xs:sequence>
+              <xs:element name="BuiltyNumber" msprop:Generator_ColumnVarNameInTable="columnBuiltyNumber" msprop:Generator_ColumnPropNameInRow="BuiltyNumber" msprop:Generator_ColumnPropNameInTable="BuiltyNumberColumn" msprop:Generator_UserColumnName="BuiltyNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyTruckNumber" msprop:Generator_ColumnVarNameInTable="columnBuiltyTruckNumber" msprop:Generator_ColumnPropNameInRow="BuiltyTruckNumber" msprop:Generator_ColumnPropNameInTable="BuiltyTruckNumberColumn" msprop:Generator_UserColumnName="BuiltyTruckNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyDate" msprop:Generator_ColumnVarNameInTable="columnBuiltyDate" msprop:Generator_ColumnPropNameInRow="BuiltyDate" msprop:Generator_ColumnPropNameInTable="BuiltyDateColumn" msprop:Generator_UserColumnName="BuiltyDate" type="xs:dateTime" minOccurs="0" />
+              <xs:element name="BuiltyDriver" msprop:Generator_ColumnVarNameInTable="columnBuiltyDriver" msprop:Generator_ColumnPropNameInRow="BuiltyDriver" msprop:Generator_ColumnPropNameInTable="BuiltyDriverColumn" msprop:Generator_UserColumnName="BuiltyDriver" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltySource" msprop:Generator_ColumnVarNameInTable="columnBuiltySource" msprop:Generator_ColumnPropNameInRow="BuiltySource" msprop:Generator_ColumnPropNameInTable="BuiltySourceColumn" msprop:Generator_UserColumnName="BuiltySource" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyDestination" msprop:Generator_ColumnVarNameInTable="columnBuiltyDestination" msprop:Generator_ColumnPropNameInRow="BuiltyDestination" msprop:Generator_ColumnPropNameInTable="BuiltyDestinationColumn" msprop:Generator_UserColumnName="BuiltyDestination" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltySender" msprop:Generator_ColumnVarNameInTable="columnBuiltySender" msprop:Generator_ColumnPropNameInRow="BuiltySender" msprop:Generator_ColumnPropNameInTable="BuiltySenderColumn" msprop:Generator_UserColumnName="BuiltySender" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyReciever" msprop:Generator_ColumnVarNameInTable="columnBuiltyReciever" msprop:Generator_ColumnPropNameInRow="BuiltyReciever" msprop:Generator_ColumnPropNameInTable="BuiltyRecieverColumn" msprop:Generator_UserColumnName="BuiltyReciever" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyQuantity" msprop:Generator_ColumnVarNameInTable="columnBuiltyQuantity" msprop:Generator_ColumnPropNameInRow="BuiltyQuantity" msprop:Generator_ColumnPropNameInTable="BuiltyQuantityColumn" msprop:Generator_UserColumnName="BuiltyQuantity" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyGoodsDetail" msprop:Generator_ColumnVarNameInTable="columnBuiltyGoodsDetail" msprop:Generator_ColumnPropNameInRow="BuiltyGoodsDetail" msprop:Generator_ColumnPropNameInTable="BuiltyGoodsDetailColumn" msprop:Generator_UserColumnName="BuiltyGoodsDetail" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyWeight" msprop:Generator_ColumnVarNameInTable="columnBuiltyWeight" msprop:Generator_ColumnPropNameInRow="BuiltyWeight" msprop:Generator_ColumnPropNameInTable="BuiltyWeightColumn" msprop:Generator_UserColumnName="BuiltyWeight" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyFare" msprop:Generator_ColumnVarNameInTable="columnBuiltyFare" msprop:Generator_ColumnPropNameInRow="BuiltyFare" msprop:Generator_ColumnPropNameInTable="BuiltyFareColumn" msprop:Generator_UserColumnName="BuiltyFare" type="xs:int" minOccurs="0" />
+              <xs:element name="BuiltyAdvance" msprop:Generator_ColumnVarNameInTable="columnBuiltyAdvance" msprop:Generator_ColumnPropNameInRow="BuiltyAdvance" msprop:Generator_ColumnPropNameInTable="BuiltyAdvanceColumn" msprop:Generator_UserColumnName="BuiltyAdvance" type="xs:int" minOccurs="0" />
+              <xs:element name="BuiltyRemainingPayment" msprop:Generator_ColumnVarNameInTable="columnBuiltyRemainingPayment" msprop:Generator_ColumnPropNameInRow="BuiltyRemainingPayment" msprop:Generator_ColumnPropNameInTable="BuiltyRemainingPaymentColumn" msprop:Generator_UserColumnName="BuiltyRemainingPayment" type="xs:int" minOccurs="0" />
+              <xs:element name="BuiltyDriverNumber" msprop:Generator_ColumnVarNameInTable="columnBuiltyDriverNumber" msprop:Generator_ColumnPropNameInRow="BuiltyDriverNumber" msprop:Generator_ColumnPropNameInTable="BuiltyDriverNumberColumn" msprop:Generator_UserColumnName="BuiltyDriverNumber" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyDriverId" msprop:Generator_ColumnVarNameInTable="columnBuiltyDriverId" msprop:Generator_ColumnPropNameInRow="BuiltyDriverId" msprop:Generator_ColumnPropNameInTable="BuiltyDriverIdColumn" msprop:Generator_UserColumnName="BuiltyDriverId" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyRate" msprop:Generator_ColumnVarNameInTable="columnBuiltyRate" msprop:Generator_ColumnPropNameInRow="BuiltyRate" msprop:Generator_ColumnPropNameInTable="BuiltyRateColumn" msprop:Generator_UserColumnName="BuiltyRate" type="xs:short" minOccurs="0" />
+              <xs:element name="BuiltyFinalFare" msprop:Generator_ColumnVarNameInTable="columnBuiltyFinalFare" msprop:Generator_ColumnPropNameInRow="BuiltyFinalFare" msprop:Generator_ColumnPropNameInTable="BuiltyFinalFareColumn" msprop:Generator_UserColumnName="BuiltyFinalFare" type="xs:int" minOccurs="0" />
+              <xs:element name="BuiltyType" msprop:Generator_ColumnVarNameInTable="columnBuiltyType" msprop:Generator_ColumnPropNameInRow="BuiltyType" msprop:Generator_ColumnPropNameInTable="BuiltyTypeColumn" msprop:Generator_UserColumnName="BuiltyType" type="xs:string" minOccurs="0" />
+              <xs:element name="BuiltyVehicleSize" msprop:Generator_ColumnVarNameInTable="columnBuiltyVehicleSize" msprop:Generator_ColumnPropNameInRow="BuiltyVehicleSize" msprop:Generator_ColumnPropNameInTable="BuiltyVehicleSizeColumn" msprop:Generator_UserColumnName="BuiltyVehicleSize" type="xs:string" minOccurs="0" />
+            </xs:sequence>
+          </xs:complexType>
+        </xs:element>
+      </xs:choice>
+    </xs:complexType>
+  </xs:element>
+</xs:schema>

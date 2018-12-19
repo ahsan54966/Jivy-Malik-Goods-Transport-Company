@@ -1,0 +1,452 @@
+﻿@model Jivy_Malik_Goods_Transport_Company.ViewModel.Admin.RouteDetail.RouteDetailViewModel
+@{
+    ViewBag.Title = "VehicleRouts";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+
+<ol class="breadcrumb">
+    <li class="breadcrumb-item text-white">
+        <a href="/Admin/Index" class="text-info">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active text-info">New Builty</li>
+</ol>
+<div class="container">
+    <!-- Breadcrumbs-->
+    @*<ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>*@
+    <div class="row">
+        <section class="col-7">
+           
+                <button type="reset" class="btn btn-default bg-info text-white"  data-target="#ADD" data-toggle="modal" id="ShowModal">ADD NEW ROUTES</button>
+        </section>
+        <section class="col-5"></section>
+    </div>
+    <div class="row">
+
+
+        <div class="card mb-3 mt-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>
+                <span class="text-info font-weight-bold">Vehicle Routes Detail</span>
+                <p>
+                    @TempData["message"]
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-xl">
+                    <table class="table table-bordered table-sm table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="text-info">
+                                <th scope="col">
+                                    Vehicle NO
+                                    @*@Html.DisplayNameFor(model => model.RideSource*@
+                                </th>
+                                <th scope="col">
+                                    Driver
+                                    @*@Html.DisplayNameFor(model => model.RideDestination)*@
+                                </th>
+                                <th scope="col">
+                                    Date
+                                    @*@Html.DisplayNameFor(model => model.RideVehicleNumber)*@
+                                </th>
+                             
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="text-info">
+                                <th scope="col">
+                                    Vehicle NO
+                                    @*@Html.DisplayNameFor(model => model.RideSource*@
+                                </th>
+                                <th scope="col">
+                                    Driver
+                                    @*@Html.DisplayNameFor(model => model.RideDestination)*@
+                                </th>
+                                <th scope="col">
+                                    Date
+                                    @*@Html.DisplayNameFor(model => model.RideVehicleNumber)*@
+                                </th>
+                  
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </tfoot>
+                 
+                        <tbody>
+                            @foreach (var item in Model.routedetail)
+                            {
+                                <tr>
+                                    <td scope="row" id="VNumber">
+                                        @Html.DisplayFor(modelItem => item.VehicleNumber)
+                                    </td>
+                                    <td scope="row" id="VDriver">
+                                        @Html.DisplayFor(modelItem => item.VehicleDriver)
+                                    </td>
+                                    <td scope="row" id="RDate">
+                                        @Html.DisplayFor(modelItem => item.RouteDate)
+                                    </td>
+                                    @Html.HiddenFor(modelItem => item.VehiclePhoneNumber, new { id = "VPhoneNumber" })
+                                    @Html.HiddenFor(modelItem => item.VehicleSize, new { id = "VSize" })
+                                    @Html.HiddenFor(modelItem => item.RouteDestination, new { id = "RDestination" })
+                                    @Html.HiddenFor(modelItem => item.RouteId, new { id = "RId" })
+                                    @Html.HiddenFor(modelItem => item.VehicleDriverCNIC, new { id = "VDriverCNIC" })
+                                    @Html.HiddenFor(modelItem => item.VehicleReferenceCompany, new { id = "VReferenceCompany" })
+                                 <td>
+
+                                     <input type="button" value="Edit" data-target="#ADD" data-toggle="modal" class=" EDIT btn btn-group-lg btn btn-warning" id="EDIT" />                             </td>
+                                    <td scope="row">
+                                        <input type="button" data-target="#RouteDetail" data-toggle="modal" value="Detail" class=" Detail btn btn-group-lg btn btn-info" id="Detail" />
+                                    </td>
+
+                                    
+                                    <td scope="row">
+                                        <input type="button" value="Delete" class="Delete btn btn-group-lg btn btn-danger" id="Delete" />
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+@*Here is add and update modal code*@
+<div class="modal fade" id="ADD" data-keyboard="false" data-backdrop="static">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="text-center">ADD Products</h4>
+                <button type="button" class="close btn btn-danger" data-dismiss="modal"> &times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    @*    @using (Html.BeginForm("Addproduct", "Admin", FormMethod.Post, new { enctype = "multipart/form-data", id = "formvalid" }))
+                        {*@
+                    <form id="AddNewRouts">
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-row">
+                                    <div class="col-md-3">
+                                        
+
+                                            <label for="VehicleNumber">Vehicle No</label>
+                                            <br />
+                                            @Html.TextBoxFor(m => m.Routes.VehicleNumber, "", new { @Class = "form-control", @Id = "VehicleNumber", @Placeholder = "Vehicle Number", @minlength = "4", @maxlength = "15" })
+                                            <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.VehicleNumber)</p>
+                                        
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="DriverName">Driver Name</label>
+                                        <br />
+                                        @Html.TextBoxFor(m => m.Routes.VehicleDriver, "", new { @Class = "form-control", @Id = "DriverName", @Placeholder = "Driver Name", @minlength = "4", @maxlength = "15" })
+                                        <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.VehicleDriver)</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="RideSeller">Phone Number</label>
+                                        @Html.TextBoxFor(m => m.Routes.VehiclePhoneNumber, "", new { @Class = "form-control", @Id = "PhoneNumber", @Placeholder = "Phone Number", @minlength = "4", @maxlength = "15" })
+                                        <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.VehiclePhoneNumber)</p>
+                                    </div>
+                                    <div class="col-md-3">
+                                        <label for="RideBuyer">Vehicle Size</label>
+                                        @Html.TextBoxFor(m => m.Routes.VehicleSize, "", new { @Class = "form-control", @Id = "VehicleSize", @Placeholder = "Vehicle Size", @minlength = "4", @maxlength = "15" })
+                                        <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.VehicleSize)</p>
+                                    </div>
+                                </div>
+
+                            </div>
+                        </div>
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="form-row">
+                                    <div class="col-md-6">    
+
+                                        <label for="RideBuyer">Route Date</label>
+                                        <input type="date" class="form-control" id="RouteDate" />   
+                          @*@Html.TextBoxFor(m => m.Routes.RouteDate, new { @id = "RouteDate", @Class = "form-control", type = "date" })
+                                    <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.RouteDate)</p>*@
+                                    </div>
+                             
+                                    <div class="col-md-6">
+                                        <label for="RideBuyer">Route Destination</label>
+                                       @Html.TextBoxFor(m => m.Routes.RouteDestination, new { @Class = "form-control", @Id = "RouteDestination", @Placeholder = "Route Destination", @minlength = "4", @maxlength = "50" })
+                                        <p class="text-danger">@Html.ValidationMessageFor(m => m.Routes.RouteDestination)</p>
+                                    </div>
+                                </div>
+                                @Html.HiddenFor(m => m.Routes.RouteId, new { @Class = "form-control", @Id = "RouteId"})
+                            </div>
+                        </div>
+
+                        <div class="form-group">
+                            <div class="form-row">
+                                <div class="col-md-4">
+                                    <input type="reset" value="Submit" class="Sub btn btn-group-lg btn btn-default" id="Submit" />
+                                    @*<input type="reset" data-dismiss="modal" value="Update" class="Update btn btn-group-lg btn btn-default" id="Submit" />*@
+
+                                </div>
+                                <div class="col-md-4">
+
+                                    <input type="reset" data-dismiss="modal" value="Close" class="Update btn btn-group-lg btn btn-danger" id="Close" />
+
+                                </div>
+                               
+
+
+                                
+                            </div>
+
+                        </div>
+                    </form>
+
+                </div>
+
+
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+
+
+
+
+</div>
+
+
+@*Here is Detail modal code*@
+<div class="modal fade" id="RouteDetail" data-keyboard="false" data-backdrop="static">
+
+    <div class="modal-dialog modal-lg">
+        <div class="modal-content">
+            <div class="modal-header text-center">
+                <h4 class="text-center">Detail Route </h4>
+                <button type="button" class="close btn btn-danger" data-dismiss="modal"> &times;</button>
+            </div>
+            <div class="modal-body">
+                <div class="container-fluid">
+                    <!-- Breadcrumbs-->
+                    <div class="row">
+                        <span class="text-danger">
+                            @TempData["message"]
+                        </span>
+                    </div>
+                    <div class="card mb-3">
+                        <div class="card-header bg-info">
+                            <i class="fa fa-table"></i>Routes  Detail
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-6">
+                                    <dl class="row">
+                                      
+                                        <dt class="col-5">Vehicle Number</dt>
+                                        <dd class="col-7" id="DVehicleNumber"></dd>
+                                        <dt class="col-5">Vehicle Driver</dt>
+                                        <dd class="col-7" id="DVehicleDriver"></dd>
+                                        <dt class="col-5">Driver CNIC</dt>
+                                        <dd class="col-7" id="DVehicleDriverCNIC"></dd>
+                                        <dt class="col-5">Phone Number</dt>
+                                        <dd class="col-7" id="DVehiclePhoneNumber"></dd>
+                                        <dt class="col-5">Vehicle Size</dt>
+                                        <dd class="col-7" id="DVehicleSize"></dd>
+                                        <dt class="col-5">Reference Company</dt>
+                                        <dd class="col-7" id="DVehicleReferenceCompany"></dd>
+
+
+
+                                    </dl>
+
+                                </div>
+                                <div class="col-6">
+                                    <dl class="row">
+                                        <dt class="col-5">Route Id</dt>
+                                        <dd class="col-7" id="DRouteId"></dd>
+
+                                        <dt class="col-5">Route Date</dt>
+                                        <dd class="col-7" id="DRouteDate"></dd>
+
+                                        <dt class="col-5">Route Destination</dt>
+                                        <dd class="col-7" id="DRouteDestination"></dd>
+                                        
+
+                                    </dl>
+
+                                </div>
+
+
+
+
+
+
+
+
+                            </div>
+
+                        </div>
+                    </div>
+                </div>
+              
+
+
+            </div>
+        </div>
+        <div class="modal-footer"></div>
+    </div>
+
+
+
+
+</div>
+
+<link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+<script src="~/Scripts/jquery-1.10.2.min.js"></script>
+
+<script type="text/javascript">
+  
+ 
+    $(document).ready(function () {
+       
+        $("#VehicleNumber").focusout(function () {
+            var VehicleNumber = $("#VehicleNumber").val();
+            $.ajax({
+                url: "/Admin/GetVehicleInformation",
+                type: "POST",
+                dataType: "json",
+                data: { VehicleNumber: VehicleNumber },
+                success: function (data) { 
+                    console.log(data);
+                    console.log(data.DriverName);
+                    $("#DriverName").val(data.VehicleDriver);
+                    $("#PhoneNumber").val(data.VehiclePhoneNumber);
+                    $("#VehicleSize").val(data.VehicleSize);
+                    $("#RouteDestination").val(data.RouteDestination);
+                }
+            })
+            console.log(CityName);
+        });
+
+
+        $("#Submit").click(function(){
+        
+
+            var formData = new FormData();
+            // var email = $("#ProductName").val();ProductCatego
+
+
+            formData.append('VehicleNumber', $("#VehicleNumber").val());
+            formData.append('VehicleDriver', $("#DriverName").val());
+            formData.append('VehiclePhoneNumber', $("#PhoneNumber").val());
+            formData.append('VehicleSize', $("#VehicleSize").val());
+            formData.append('RouteDestination', $("#RouteDestination").val());
+            formData.append('RouteDate', $("#RouteDate").val());
+            formData.append('RouteId', $("#RouteId").val());
+            console.log(formData);
+            $.ajax({
+
+                type: "POST",
+                url: "/Admin/AddNewRoutes",
+                data: formData,
+                contentType: false,
+                processData: false,
+                success: function (response) {/// <reference path="pathto/script.js"/>
+                }
+
+            })
+
+        });
+
+
+        $("#dataTable").on('click', '.EDIT', function () {
+            $(".Sub").val("Update");
+            
+            $("#Show").show();
+            var currentRow = $(this).closest("tr");
+            var VehicleNumber = currentRow.find("#VNumber").html();
+
+            var VehicleDriver= currentRow.find("#VDriver").html();
+            var RouteDate = currentRow.find("#RDate").html();
+            var VehiclePhoneNumber = currentRow.find("#VPhoneNumber").val();
+            
+            var VehicleSize = currentRow.find("#VSize").val();
+
+            var RouteDestination = currentRow.find("#RDestination").val();
+            var RouteId = currentRow.find("#RId").val();
+            console.log(VehicleDriver);
+            console.log(VehicleNumber);
+
+            $("#DriverName").val(VehicleDriver.trim());
+            $("#VehicleNumber").val(VehicleNumber.trim());
+            $("#PhoneNumber").val(VehiclePhoneNumber);
+
+            $("#RouteDate").val(RouteDate);
+            $("#VehicleSize").val(VehicleSize);
+            $("#RouteDestination").val(RouteDestination);
+            $("#RouteId").val(RouteId);
+        });
+
+        $("#ShowModal").click(function () {
+         
+            $(".Sub").val("Submit");
+            $("#Close").show();
+            console.log("afzall");
+            //$('#AddNewRouts.frm').trigger("reset");
+
+            document.getElementById("AddNewRouts").reset();
+
+        });
+
+        
+      
+        $("#dataTable").on('click', '.Detail', function () {
+           
+            var currentRow = $(this).closest("tr");
+            var VehicleNumber = currentRow.find("#VNumber").html();
+
+            var VehicleDriver = currentRow.find("#VDriver").html();
+            var RouteDate = currentRow.find("#RDate").html();
+            var VehiclePhoneNumber = currentRow.find("#VPhoneNumber").val();
+          
+            var VehicleSize = currentRow.find("#VSize").val();
+
+            var RouteDestination = currentRow.find("#RDestination").val();
+            var RouteId = currentRow.find("#RId").val();
+            var VehicleReferenceCompany = currentRow.find("#VReferenceCompany").val();
+            var VehicleDriverCNIC = currentRow.find("#VDriverCNIC").val();
+           
+            console.log(VehicleDriver.trim());
+            console.log(VehicleNumber.trim());
+            console.log(VehicleReferenceCompany);
+            $("#DVehicleDriver").html(VehicleDriver.trim());
+            $("#DVehicleNumber").html(VehicleNumber.trim());
+            $("#DVehiclePhoneNumber").html(VehiclePhoneNumber);
+
+            $("#DRouteDate").html(RouteDate);
+            $("#DVehicleSize").html(VehicleSize);
+            $("#DRouteDestination").html(RouteDestination);
+            $("#DRouteId").html(RouteId);
+            $("#DVehicleReferenceCompany").html(VehicleReferenceCompany)
+            $("#DVehicleDriverCNIC").html(VehicleDriverCNIC)
+        });
+
+
+
+
+        $("#dataTable").on('click', '.Delete', function () {
+            console.log("afzaal"),
+alert("Sorry You Can Not Delete")
+
+        });
+
+    })
+</script>

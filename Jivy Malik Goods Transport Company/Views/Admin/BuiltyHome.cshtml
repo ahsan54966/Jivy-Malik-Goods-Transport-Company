@@ -1,0 +1,156 @@
+﻿@model IEnumerable<Jivy_Malik_Goods_Transport_Company.Models.Builty>
+
+@{
+    ViewBag.Title = "BuiltyHome";
+    Layout = "~/Views/Shared/_Admin_Layout.cshtml";
+}
+<ol class="breadcrumb">
+    <li class="breadcrumb-item text-white">
+        <a href="/Admin/Index" class="text-info">Dashboard</a>
+    </li>
+    <li class="breadcrumb-item active text-info">New Builty</li>
+</ol>
+<div class="container">
+    <!-- Breadcrumbs-->
+    @*<ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="#">Dashboard</a>
+            </li>
+            <li class="breadcrumb-item active">My Dashboard</li>
+        </ol>*@
+    <div class="row">
+        <section class="col-7">
+            <div class="dropdown">
+                <button class="btn btn-default bg-info text-white dropdown-toggle" type="button" id="dropdownMenuButton" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                    New Builty
+                </button>
+                <div class="dropdown-menu bg-info" aria-labelledby="dropdownMenuButton">
+                    @Html.ActionLink("Company", "CompanyBuilty", "Admin", new { }, new { @Class = "dropdown-item text-white bg-info" })
+                    @Html.ActionLink("Factory", "FactoryBuilty", "Admin", new { }, new { @Class = "dropdown-item text-white bg-info" })
+                </div>
+            </div>
+
+        </section>
+        <section class="col-5"></section>
+    </div>
+    <div class="row">
+
+
+        <div class="card mb-3 mt-3">
+            <div class="card-header">
+                <i class="fa fa-table"></i>
+                <span class="text-info font-weight-bold">Builty Detail</span>
+                <p>
+                    @TempData["BuiltyHomeMessage"]
+                </p>
+            </div>
+            <div class="card-body">
+                <div class="table-responsive-xl">
+                    <table class="table table-bordered table-sm table-hover table-striped" id="dataTable" width="100%" cellspacing="0">
+                        <thead>
+                            <tr class="text-info">
+                                <th scope="col">
+                                    Source
+                                    @*@Html.DisplayNameFor(model => model.RideSource*@
+                                </th>
+                                <th scope="col">
+                                    Destination
+                                    @*@Html.DisplayNameFor(model => model.RideDestination)*@
+                                </th>
+                                <th scope="col">
+                                    Veh #
+                                    @*@Html.DisplayNameFor(model => model.RideVehicleNumber)*@
+                                </th>
+                                <th scope="col">
+                                    Prodit
+                                    @*@Html.DisplayNameFor(model => model.RideProdit)*@
+                                </th>
+
+                                <th scope="col">
+                                    Record Date
+                                    @* @Html.DisplayNameFor(model => model.RideDate)*@
+                                </th>
+                                <th scope="col">
+                                    Detail
+                                    @* @Html.DisplayNameFor(model => model.RideDetail)*@
+                                </th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </thead>
+                        <tfoot>
+                            <tr class="text-info">
+                                <th scope="col">
+                                    Source
+                                    @*@Html.DisplayNameFor(model => model.RideSource*@
+                                </th>
+                                <th scope="col">
+                                    Destination
+                                    @*@Html.DisplayNameFor(model => model.RideDestination)*@
+                                </th>
+                                <th scope="col">
+                                    Veh #
+                                    @*@Html.DisplayNameFor(model => model.RideVehicleNumber)*@
+                                </th>
+                                <th scope="col">
+                                    Prodit
+                                    @*@Html.DisplayNameFor(model => model.RideProdit)*@
+                                </th>
+
+                                <th scope="col">
+                                    Record Date
+                                    @* @Html.DisplayNameFor(model => model.RideDate)*@
+                                </th>
+                                <th scope="col">
+                                    Detail
+                                    @* @Html.DisplayNameFor(model => model.RideDetail)*@
+                                </th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                                <th scope="col">Action</th>
+                            </tr>
+                        </tfoot>
+                        <tbody>
+                            @foreach (var item in Model)
+                            {
+                                <tr>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.BuiltySource)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.BuiltyDestination)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.BuiltyTruckNumber)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.BuiltyFare)
+                                    </td>
+                                    <td scope="row" style="font-size:12px">
+                                        @Html.DisplayFor(modelItem => item.BuiltyDate)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.DisplayFor(modelItem => item.BuiltyGoodsDetail)
+                                    </td>
+                                    <td scope="row">
+                                        @Html.ActionLink("Edit", "CompanyBuilty", new { id = item.BuiltyNumber }, new { @Class = "btn-sm btn-warning" })
+                                    </td>
+                                    <td scope="row">
+                                        @Html.ActionLink("Details", "BuiltyDetail", new { id = item.BuiltyNumber }, new { @Class = "btn-sm btn-info" })
+
+                                    </td>
+                                    <td scope="row">
+                                        @Html.ActionLink("Delete", "BuiltyDelete", new { id = item.BuiltyNumber }, new { @Class = "btn-sm btn-danger" })
+                                    </td>
+                                </tr>
+                            }
+
+                        </tbody>
+
+                    </table>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
